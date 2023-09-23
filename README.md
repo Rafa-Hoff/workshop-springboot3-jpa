@@ -11,7 +11,7 @@
 - Exceptions treatment
 
 # About the project
-My third academic project in [Professor Nelio Alves](https://www.udemy.com/course/java-curso-completo/) Java course.
+My third academic project in [Professor Nelio Alves'](https://www.udemy.com/course/java-curso-completo/) Java course.
 
 This is a back-end application implemented by layers, using PostgreSQL as database.
 The resource layer is the REST controllers, they will be the application interface with the 
