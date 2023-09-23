@@ -13,7 +13,8 @@
 # About the project
 My third academic project in [Professor Nelio Alves'](https://www.udemy.com/course/java-curso-completo/) Java course.
 
-This is a back-end application implemented by layers, using PostgreSQL as database.
+This is a back-end application implemented by layers, using PostgreSQL as database, where we have some products, 
+categories, orders, and users.
 The resource layer is the REST controllers, they will be the application interface with the 
 back-end, and will receive requests to respond based on the system behavior. 
 There is also the service layer and the data access layer, and they will interact with the entities.
