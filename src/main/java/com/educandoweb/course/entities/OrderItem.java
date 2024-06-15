@@ -9,6 +9,9 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * It's between "Product" and "Order" with extra attributes.
+ */
 @Entity
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable {

@@ -10,6 +10,9 @@ import jakarta.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * Auxiliary class with the function of a composite primary key to representing the pair "Product & Order".
+ */
 @Embeddable
 public class OrderItemPK implements Serializable {
 

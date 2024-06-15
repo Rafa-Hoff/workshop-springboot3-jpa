@@ -19,19 +19,37 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
+    /**
+     * Responsible to returning all the users of database.
+     * @return all users list.
+     */
     public List<User> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * Responsible to finding a user by the user ID.
+     * @param id user ID.
+     * @return a user.
+     */
     public User findById(Long id) {
         Optional<User> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
+    /**
+     * Responsible to inserting a new user in database.
+     * @param obj
+     * @return null.
+     */
     public User insert(User obj) {
         return repository.save(obj);
     }
 
+    /**
+     * Responsible to deleting a user from database using his ID.
+     * @param id user ID.
+     */
     public void delete(Long id) {
         try {
             repository.deleteById(id);
@@ -42,6 +60,12 @@ public class UserService {
         }
     }
 
+    /**
+     * Responsible to updating the user data.
+     * @param id User ID that will be changed.
+     * @param obj new user data
+     * @return null
+     */
     public User update(Long id, User obj) {
         try {
             User entity = repository.getReferenceById(id);
@@ -52,6 +76,11 @@ public class UserService {
         }
     }
 
+    /**
+     * Responsible to updating the user data.
+     * @param entity
+     * @param obj
+     */
     private void updateData(User entity, User obj) {
         entity.setName(obj.getName());
         entity.setEmail(obj.getEmail());

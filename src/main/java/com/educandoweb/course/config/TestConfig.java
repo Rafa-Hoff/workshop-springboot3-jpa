@@ -11,6 +11,11 @@ import org.springframework.context.annotation.Profile;
 import java.time.Instant;
 import java.util.Arrays;
 
+/**
+ * This class has specific configurations for the resource 'application-test.properties' where we can test the
+ * program in H2 database that doesn't affect the deployed program and it responsible to database seeding.
+ * OBS.: Change in resource "application.properties" the "spring.profiles.active=" to "test" to use these configurations.
+ */
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
@@ -30,6 +35,12 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private OrderItemRepository orderItemRepository;
 
+
+    /**
+     * Responsible to instantiates the database.
+     * @param args
+     * @throws Exception
+     */
     @Override
     public void run(String... args) throws Exception {
 

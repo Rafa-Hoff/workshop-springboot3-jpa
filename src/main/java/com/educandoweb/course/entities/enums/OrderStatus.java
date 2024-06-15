@@ -1,5 +1,8 @@
 package com.educandoweb.course.entities.enums;
 
+/**
+ * Responsible to assigning a status code for an order.
+ */
 public enum OrderStatus {
     WAITING_PAYMENT(1),
     PAID(2),
@@ -17,6 +20,11 @@ public enum OrderStatus {
         return code;
     }
 
+    /**
+     * Responsible to converting a numeric value into an enumerated one.
+     * @param code Order code.
+     * @return status code.
+     */
     public static OrderStatus valueOf(int code) {
         for (OrderStatus value : OrderStatus.values()) {
             if (value.getCode() == code) {

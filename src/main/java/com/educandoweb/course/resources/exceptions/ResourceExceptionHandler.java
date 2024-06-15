@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.Instant;
 
+/**
+ * Own error handling.
+ */
 @ControllerAdvice
 public class ResourceExceptionHandler {
 

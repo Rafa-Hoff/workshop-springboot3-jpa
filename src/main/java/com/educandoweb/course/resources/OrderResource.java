@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Resource layer (REST controller) of Order.
+ */
 @RestController
 @RequestMapping(value = "/orders")
 public class OrderResource {
@@ -18,12 +21,21 @@ public class OrderResource {
     @Autowired
     private OrderService service;
 
+    /**
+     * Endpoint to access all the orders.
+     * @return a web response with orders list.
+     */
     @GetMapping
     public ResponseEntity<List<Order>> findAll() {
         List<Order> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
+    /**
+     * Endpoint to access an Order by the ID.
+     * @param id Order ID.
+     * @return a web response with an Order object.
+     */
     @GetMapping(value = "/{id}")
     public ResponseEntity<Order> findById(@PathVariable Long id) {
         Order obj = service.findById(id);

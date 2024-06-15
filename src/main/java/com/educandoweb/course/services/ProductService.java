@@ -14,10 +14,19 @@ public class ProductService {
     @Autowired
     private ProductRepository repository;
 
+    /**
+     * Responsible to returning all the products of database.
+     * @return all products list.
+     */
     public List<Product> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * Responsible to finding a product by the ID.
+     * @param id product ID.
+     * @return a product.
+     */
     public Product findById(Long id) {
         Optional<Product> obj = repository.findById(id);
         return obj.get();

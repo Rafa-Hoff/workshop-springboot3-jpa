@@ -9,20 +9,23 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_user") //Renames the database table to avoid conflicts
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //The ID is auto incremented.
     private Long id;
     private String name;
     private String email;
     private String phone;
     private String password;
 
-    @JsonIgnore
+    /**
+     * Association with Order class.
+     */
+    @JsonIgnore //This annotation prevents a loop between User and Order.
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 

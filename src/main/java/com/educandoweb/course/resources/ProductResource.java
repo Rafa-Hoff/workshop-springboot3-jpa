@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Resource layer (REST controller) of Product.
+ */
 @RestController
 @RequestMapping(value = "/products")
 public class ProductResource {
@@ -18,12 +21,21 @@ public class ProductResource {
     @Autowired
     private ProductService service;
 
+    /**
+     * Endpoint to access all the products.
+     * @return a web response with products list.
+     */
     @GetMapping
     public ResponseEntity<List<Product>> findAll() {
         List<Product> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
+    /**
+     * Endpoint to access a Product by the ID.
+     * @param id product ID.
+     * @return a web response with the Product object.
+     */
     @GetMapping(value = "/{id}")
     public ResponseEntity<Product> findById(@PathVariable Long id) {
         Product obj = service.findById(id);

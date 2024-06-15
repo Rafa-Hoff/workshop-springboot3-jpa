@@ -25,13 +25,22 @@ public class Order implements Serializable {
 
     private Integer orderStatus;
 
+    /**
+     * Association with User class.
+     */
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
 
+    /**
+     * Association with OrderItem class.
+     */
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> items = new HashSet<>();
 
+    /**
+     * Association with Payment class.
+     */
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private Payment payment;
 
@@ -65,6 +74,10 @@ public class Order implements Serializable {
         return OrderStatus.valueOf(orderStatus);
     }
 
+    /**
+     *
+     * @param orderStatus
+     */
     public void setOrderStatus(OrderStatus orderStatus) {
         if (orderStatus != null) {
             this.orderStatus = orderStatus.getCode();
@@ -91,6 +104,10 @@ public class Order implements Serializable {
         return items;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getTotal() {
         double sum = 0.0;
         for (OrderItem x : items) {

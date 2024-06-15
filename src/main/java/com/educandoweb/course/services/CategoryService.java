@@ -14,10 +14,19 @@ public class CategoryService {
     @Autowired
     private CategoryRepository repository;
 
+    /**
+     * Responsible to returning all the categories of database.
+     * @return all categories list.
+     */
     public List<Category> findAll() {
         return repository.findAll();
     }
 
+    /**
+     * Responsible to finding a Category by the ID.
+     * @param id category ID.
+     * @return a Category.
+     */
     public Category findById(Long id) {
         Optional<Category> obj = repository.findById(id);
         return obj.get();
