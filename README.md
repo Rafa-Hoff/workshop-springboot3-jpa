@@ -43,7 +43,7 @@ There is also the service layer that will interact with the objects in database.
 - [Postman](https://www.postman.com/downloads/)
 
 ### Clone the project
-- Open the Git bash inside a folder of your preference;
+- Open the Git bash inside a folder of your preference.
 - Writes and run the comand:
 ```
 git@github.com:Rafa-Hoff/workshop-springboot3-jpa.git
@@ -52,13 +52,11 @@ git@github.com:Rafa-Hoff/workshop-springboot3-jpa.git
 
 ### Configuring project
 - If your IDE do not update the project with the maven dependencies automatically, make this steps:
-```
-- Click with the right mouse button on "pom.xml" file
-- Search for maven
-- Click in the option "project reload"
-- Wait the dependencies download
-```
-- Open the "applicaiton.properties" at: src > resources > application.properties
+  - Click with the right mouse button on "pom.xml" file.
+  - Search for maven.
+  - Click in the option "project reload".
+  - Wait the dependencies download.
+- Open the "applicaiton.properties" at: src > resources > application.properties.
 - You will see this:
 ```
 spring.profiles.active=dev
@@ -76,14 +74,45 @@ spring.jpa.open-in-view=true
 ### Testing requisitions with Postman
 - Run the CourseApplication at: src > java > com.educandoweb.course > CourseApplication
 - Open the Postman and initiates a request
-- To test the User method, you can try:
-```
-# FindAll
-http://localhost:8080/users
-
-# FindById (Change {id} for 1, 2, 3, etc...)
-http://localhost:8080/users/{id}
-```
+#### Obs.: When you see {id}, change it to 1, 2, etc...
+- To test the User methods, you can try:
+  - FindAll: (GET) ```http://localhost:8080/users```
+  - FindById: (GET) ```http://localhost:8080/users/{id}```
+  - Steps to Update:
+    - (PUT) ```http://localhost:8080/users/{id}```
+    - In the Postman, select "Body" then "raw" and lastly JSON, now you can copy and paste this:
+    ```
+    {
+      "name": "Bob Brown",
+      "email": "bob@gmail.com",
+      "phone": "977557755"
+    }
+    ```
+    - You can check in H2 Database if the user update was successful.
+  
+  - Steps to Insert:
+    - (POST) ```http://localhost:8080/users```
+    - In the Postman, select "Body" then "raw" and lastly JSON, now you can copy and paste this:
+    ```
+    {
+      "name": "Rafael",
+      "email": "rafael@email.com",
+      "phone": "123456789",
+      "password": "123456"
+    }
+    ```
+    - You can check in H2 Database if the new user insertion was successful.
+  
+  - Delete: (DELETE) ```http://localhost:8080/users/{id}```
+- To test the Category methods:
+  - FindAll: (GET) ```http://localhost:8080/categories```
+  - FindById: (GET) ```http://localhost:8080/categories/{id}```
+- To teste the Product methods:
+  - FindAll: (GET) ```http://localhost:8080/products```
+  - FindById: (GET) ```http://localhost:8080/products/{id}```
+- To teste the Order methods:
+  - FindAll: (GET) ```http://localhost:8080/orders```
+  - FindById: (GET) ```http://localhost:8080/orders/{id}```
 
 # Author
 Rafael Hoffmann do Amaral
