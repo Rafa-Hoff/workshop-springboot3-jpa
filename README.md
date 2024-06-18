@@ -56,7 +56,7 @@ git@github.com:Rafa-Hoff/workshop-springboot3-jpa.git
   - Search for maven.
   - Click in the option "project reload".
   - Wait the dependencies download.
-- Open the "applicaiton.properties" at: src > resources > application.properties.
+- Open the "applicaiton.properties" at: src > main > resources > application.properties.
 - You will see this:
 ```
 spring.profiles.active=dev
@@ -72,7 +72,7 @@ spring.jpa.open-in-view=true
 - You can see the data in the database and the entities associations
 
 ### Testing requisitions with Postman
-- Run the CourseApplication at: src > java > com.educandoweb.course > CourseApplication
+- Run the CourseApplication at: src > main > java > com.educandoweb.course > CourseApplication
 - Open the Postman and initiates a request
 #### Obs.: When you see {id}, change it to 1, 2, etc...
 - To test the User methods, you can try:
@@ -113,6 +113,29 @@ spring.jpa.open-in-view=true
 - To teste the Order methods:
   - FindAll: (GET) ```http://localhost:8080/orders```
   - FindById: (GET) ```http://localhost:8080/orders/{id}```
+
+### Testing with PostgreSQL:
+- Start the pgAdmin and login.
+- click on Servers > PostgreSQL > right mouse button on Database > Create > Database.
+- Name the database with "springboot_course", set the user and save.
+- In your IDE, open: src > main > resources > application-dev.properties.
+- You need to change this part with:
+```
+# PostgreSQL:
+spring.datasource.url=jdbc:postgresql://localhost:{Your Port}/springboot_course
+spring.datasource.username={Your Username}
+spring.datasource.password={Your Password}
+```
+- Now open "application.properties" at: src > main > resources > application.properties and change:
+```
+spring.profiles.active=test
+            to
+spring.profiles.active=dev
+```
+- Run "CourseApplication" at: src > main > java > com.educandoweb.course > CourseApplication.
+- Check in pgAdmin if the tables are created. To check go: springboot_course > Schemas > public > tables.
+
+This is it! Thank you!
 
 # Author
 Rafael Hoffmann do Amaral
